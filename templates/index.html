@@ -5,7 +5,11 @@
 
 <div class="container content">
   <h1 class="heading">My Favorite Movies</h1>
-  <p class="description">These are my all-time favourite movies.</p>
+
+  <div class="container text-center ">
+    <a href="{{ url_for('add_movie') }}" class="button">Add Movie</a>
+    <a href="{{ url_for('logout') }}" class="button logout-button">Logout</a>
+  </div>
 
   {% for movie in movies %}
   
@@ -34,9 +38,6 @@
   {% endfor %}
 </div>
 
-<div class="container text-center add">
-  <a href="{{ url_for('add_movie') }}" class="button">Add Movie</a>
-  <a href="{{ url_for('logout') }}" class="button logout-button">Logout</a>
-</div>
+
 
 {% endblock %}
