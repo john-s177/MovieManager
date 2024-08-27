@@ -19,6 +19,7 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_NAME = os.getenv('DB_NAME')
 SECRET_KEY = os.getenv('SECRET_KEY')
 URL = 'https://api.themoviedb.org/3/search/movie?query=hereditary&include_adult=true&language=en-US&page=1'
+HASHING_METHOD = os.getenv('HASHING_METHOD')
 
 # Initialize Flask app and configure
 app = Flask(__name__)
@@ -52,7 +53,7 @@ class User(UserMixin):
 
     @staticmethod
     def create_user(email, password):
-        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+        hashed_password = generate_password_hash(password, method=HASHING_METHOD)
         return User(None, email, hashed_password)
 
     @staticmethod
